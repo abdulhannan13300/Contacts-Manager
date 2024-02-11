@@ -24,6 +24,7 @@ public class Contact {
     @Column(name = "id", unique = true, updatable = false)
     private String id;
     private String name;
+    private String email;
     private String title;
     private String phone;
     private String address;

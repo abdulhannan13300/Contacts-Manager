@@ -40,8 +40,8 @@ public class ContactService {
     public Contact createContact(Contact contact) {
         return contactRepo.save(contact);
     }
-    public void deleteContact(Contact contact) {
-        contactRepo.delete(contact);
+    public void deleteContact(String id) {
+        contactRepo.deleteById(id);
     }
 
     public String uploadPhoto(String id, MultipartFile file) {
@@ -71,7 +71,7 @@ public class ContactService {
             //save the file with uid.png name of the user
 //            Files.copy(image.getInputStream(), fileStorageLocation.resolve(id + ".png"), REPLACE_EXISTING);
             Files.copy(image.getInputStream(), fileStorageLocation.resolve(filename), REPLACE_EXISTING);
-            return ServletUriComponentsBuilder.fromCurrentContextPath().path("/contacts/image" + filename).toUriString();
+            return ServletUriComponentsBuilder.fromCurrentContextPath().path("/contacts/image/" + filename).toUriString();
         } catch (Exception exception) {
             throw new RuntimeException("unable to save image");
         }
