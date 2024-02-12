@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 
 const Contact = ({ contact }) => {
   return (
-    <Link to={`/contacts/${contact.id}`} className="contact_item">
-      <div className="contact_header">
-        <div className="contact_image">
-          <img src={contact.photo} alt={contact.name} />
+    <Link to={`/contacts/${contact.id}`} className="contact__item">
+      <div className="contact__header">
+        <div className="contact__image">
+          <img src={contact.photoUrl} alt={contact.name} />
         </div>
-        <div className="contact_details">
+        <div className="contact__details">
           <p className="contact_name">{contact.name.substring(0, 15)}</p>
           <p className="contact_title">{contact.title}</p>
         </div>
       </div>
-      <div className="contact_body">
+      <div className="contact__body">
         <p>
-          <i className="bi bi-envelope"></i> {contact.email.substring(0, 15)}
+          <i className="bi bi-envelope"></i> {contact?.email?.substring(0, 20)}
         </p>
         <p>
           <i className="bi bi-geo"></i> {contact.address}
